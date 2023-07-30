@@ -1,7 +1,6 @@
 name: mlops-example
 on: [push]
 
-
 jobs:
   run:
     runs-on: [ubuntu-latest]
