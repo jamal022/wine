@@ -18,10 +18,10 @@ jobs:
 
       - name: Run ML workflow
         env:
-          CI_PIPELINE_TOKEN: ${{ secrets.CI_PIPELINE_TOKEN }}
+          CI_Token: ${{ secrets.CI_Token }}
         run: |
           # Your ML workflow goes here
-          echo "Using the token: $CI_PIPELINE_TOKEN"
+          echo "Using the token: $CI_Token"
           python train.py
 
           echo "## Model metrics" > report.md
