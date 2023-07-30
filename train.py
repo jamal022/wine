@@ -12,7 +12,7 @@ seed = 42
 ########## DATA PREP ###########
 ################################
 
-df =  pd.read_csv("winequality-white.csv")
+df =  pd.read_csv("winequality-red.csv")
 
 # Split into train-test
 y = df.pop("quality")
