@@ -18,9 +18,10 @@ jobs:
 
       - name: Run ML workflow
         env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          CI_PIPELINE_TOKEN: ${{ secrets.CI_PIPELINE_TOKEN }}
         run: |
           # Your ML workflow goes here
+          echo "Using the token: $CI_PIPELINE_TOKEN"
           python train.py
 
           echo "## Model metrics" > report.md
