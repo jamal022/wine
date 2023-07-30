@@ -1,5 +1,6 @@
 name: mlops-example
 on: [push]
+
 jobs:
   run:
     runs-on: [ubuntu-latest]
@@ -10,20 +11,17 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-
           # Your ML workflow goes here
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           python train.py
-          
+
           echo "## MODEL METRICS" > report.md
           cat metrics.txt >> report.md
-          
+
           echo "\n## Data viz" >> report.md
-          
+
           cml-publish feature_importance.png --md >> report.md
           cml-publish residuals.png --md >> report.md
-          
+
           cml-send-comment report.md
-          
-          
