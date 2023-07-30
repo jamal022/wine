@@ -16,6 +16,7 @@ jobs:
       - name: Train model
         run: |
           # Your ML workflow goes here
+          pip install --upgrade pip
           pip install -r requirements.txt
           python train.py
           
