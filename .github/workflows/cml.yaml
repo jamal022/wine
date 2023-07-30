@@ -6,7 +6,7 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Train my model'
+      - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -23,6 +23,3 @@ jobs:
           cml-publish residuals.png --md >> report.md
           
           cml-send-comment report.md
-
-      
-     
